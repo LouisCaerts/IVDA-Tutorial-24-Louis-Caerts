@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <h2>Louis Caerts - 23-724-693</h2>
+      <h2>Louis Caerts — 23-724-693</h2>
     </v-app-bar>
     <v-main>
       <ConfigurationPanel/>

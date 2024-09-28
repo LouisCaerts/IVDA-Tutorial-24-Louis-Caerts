@@ -53,6 +53,7 @@
         <v-col cols="12" md="5">
           <ScatterPlot :key="scatterPlotId"
                  :selectedCategory="categories.selectedValue"
+                 :selectedCompany="companies.selectedValue"
                  @changeCurrentlySelectedCompany="changeCurrentlySelectedCompany"
           />
         </v-col>
@@ -73,12 +74,13 @@ export default {
   components: {ScatterPlot, LinePlot},
   data: () => ({
     scatterPlotId: 0,
+    linePlotId: 0,
     categories: {
       values: ['All', 'tech', 'health', 'bank'],
       selectedValue: 'All'
     },
     companies: {
-      values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      values: [],
       selectedValue: 1
     },
     algorithm: {
@@ -86,11 +88,24 @@ export default {
       selectedValue: 'none'
     }
   }),
+  mounted() {
+    this.fetchData()
+  },
   methods: {
+    async fetchData() {
+      var reqUrl = 'http://127.0.0.1:5000/companies?category=All';
+      const response = await fetch(reqUrl)
+      const responseData = await response.json();
+      responseData.forEach((company) => {
+        const newCompany = {"value":company.id, "title":company.name};
+        this.companies.values.push(newCompany);
+      })
+    },
     changeCategory() {
           this.scatterPlotId += 1
         },
     changeCompany() {
+          this.scatterPlotId += 1
           this.linePlotId += 1
     },
     changeAlgorithm() {
