@@ -1,0 +1,12 @@
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI that generates haikus about companies."
+        },
+        {
+            "role": "user",
+            "content": "Please provide a haiku about the company {company}. Your response should be just the haiku, separated with newlines, and nothing else."
+        }
+    ]
+}

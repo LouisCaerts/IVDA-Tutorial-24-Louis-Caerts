@@ -103,7 +103,7 @@
                         color: barColors
                     }
                 }];
-                var layout = {xaxis: {title: "Company name", tickangle: -30}, yaxis: {title: "Average profit (2017-2021)"}, margin: {t: 10, pad: 0}}
+                var layout = {xaxis: {title: "Company name", tickangle: -30}, yaxis: {title: "Average profit (in millions) (2017-2021)"}, margin: {t: 10, pad: 0}}
                 var config = {responsive: true, displayModeBar: false}
                 Plotly.newPlot('myBarPlot', data, layout, config);
                 this.clickBarPlot()

@@ -1,10 +1,10 @@
 <template>
     <div>
-        <v-row align="center" justify="center" class="mt-1 mb-0">
+        <v-row text-align="center" justify="center" class="mt-2 mb-0">
             <h3>{{ this.CompanyName }} yearly profits</h3>
         </v-row>
-        <div style="height: 80vh">
-            <div id='myTablePlot' style="height: inherit"></div>
+        <div>
+            <div style="height: 250px;" id='myTablePlot'></div>
         </div>
     </div>
 </template>
@@ -22,7 +22,7 @@
             selectedCompany: function () {
                 this.TablePlotData.years = [];
                 this.TablePlotData.profits = [];
-                this.TablePlotData.companyName = [];
+                this.companyName = '';
                 this.TablePlotData.category = [];
 
                 this.fetchData();
@@ -30,7 +30,7 @@
             selectedAlgorithm: function () {
                 this.TablePlotData.years = [];
                 this.TablePlotData.profits = [];
-                this.TablePlotData.companyName = [];
+                this.companyName = '';
                 this.TablePlotData.category = [];
 
                 this.fetchData();
@@ -80,11 +80,12 @@
                 var data = [{
                     type: 'table',
                     header: {
-                        values: [["<b>YEAR</b>"], ["<b>PROFIT</b>"]],
+                        values: [["<b>YEAR</b>"], ["<b>PROFIT (IN MILLIONS)</b>"]],
                         align: "center",
                         line: {width: 1, color: 'black'},
                         fill: {color: colors[this.TablePlotData.category || 'other']},
-                        font: {family: "Arial", size: 12, color: "white"}
+                        font: {family: "Arial", size: 12, color: "white"},
+                        valign: "center"
                     },
                     cells: {
                         values: values,
@@ -93,7 +94,7 @@
                         font: {family: "Arial", size: 11, color: ["black"]}
                     }
                 }];
-                var layout = {margin: {t: 10, pad: 0}}
+                var layout = {margin: {t: 10, pad: 0}, autosize: true,}
                 var config = {responsive: true, displayModeBar: false}
                 Plotly.newPlot('myTablePlot', data, layout, config);
             },

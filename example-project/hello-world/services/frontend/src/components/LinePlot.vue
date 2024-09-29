@@ -113,7 +113,7 @@ export default {
         }
       }
       var data = [historicTrace, connectingTrace, predictedTrace];
-      var layout = {xaxis: {title: "Year"}, yaxis: {title: "Profit"}, margin: {t: 10, pad: 0}, showlegend: false}
+      var layout = {xaxis: {title: "Year"}, yaxis: {title: "Profit (in millions)"}, margin: {t: 10, pad: 0}, showlegend: false}
       var config = {responsive: true, displayModeBar: false}
       Plotly.newPlot('myLinePlot', data, layout, config);
     }

@@ -10,3 +10,11 @@ class Company(BaseModel):
         profit: List
         def to_json(self):
             return jsonable_encoder(self, exclude_none=True)
+class Poem(BaseModel):
+      text: str
+      def to_json(self):
+            return jsonable_encoder(self, exclude_none=True)
+class CompanyAnalysis(BaseModel):
+      text: str
+      def to_json(self):
+            return jsonable_encoder(self, exclude_none=True)

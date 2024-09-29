@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark class="pl-4">
+      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <h2 ps="5">Louis Caerts — 23-724-693</h2>
     </v-app-bar>
     <v-main>
-      <ConfigurationPanel/>
+      <ConfigurationPanel :drawer="drawer"/>
     </v-main>
   </v-app>
 </template>
@@ -31,7 +32,7 @@ export default {
   },
 
   data: () => ({
-    //
+    drawer: true
   }),
 }
 </script>

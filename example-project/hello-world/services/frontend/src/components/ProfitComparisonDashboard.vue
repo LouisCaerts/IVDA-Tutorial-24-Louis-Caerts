@@ -3,17 +3,20 @@
         <v-container fluid>
             <v-row>
 
-                <v-col>
+                <v-col cols="12" md="6">
+                    <BarPlot :key="barPlotId"
+                    :selectedCompany="selectedCompany"
+                    :selectedAlgorithm="selectedAlgorithm"
+                    @changeCurrentlySelectedCompany="changeCurrentlySelectedCompany" />
+
                     <TablePlot :key="tablePlotId"
                     :selectedCompany="selectedCompany"
                     :selectedAlgorithm="selectedAlgorithm" />
                 </v-col>
 
-                <v-col>
-                    <BarPlot :key="barPlotId"
-                    :selectedCompany="selectedCompany"
-                    :selectedAlgorithm="selectedAlgorithm"
-                    @changeCurrentlySelectedCompany="changeCurrentlySelectedCompany" />
+                <v-col cols="12" md="6">
+                    <CompanyAnalysis :key="companyAnalysisId"
+                    :selectedCompany="selectedCompany" />
                 </v-col>
 
             </v-row>
@@ -24,9 +27,10 @@
 <script>
 import TablePlot from './TablePlot';
 import BarPlot from './BarPlot';
+import CompanyAnalysis from './CompanyAnalysis'
 
 export default {
-    components: {TablePlot, BarPlot},
+    components: {TablePlot, BarPlot, CompanyAnalysis},
     props: [
         "selectedCompany",
         "selectedAlgorithm"
