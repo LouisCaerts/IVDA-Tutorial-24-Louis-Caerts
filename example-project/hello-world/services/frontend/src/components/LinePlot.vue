@@ -3,7 +3,7 @@
     <v-row align="center" justify="center" class="mt-1 mb-0">
       <h3>Profit View of {{ this.CompanyName }} (2017-2021)</h3>
     </v-row>
-    <div style="height: 90vh">
+    <div style="height: 80vh">
       <div id='myLinePlot' style="height: inherit"></div>
     </div>
   </div>
@@ -113,7 +113,7 @@ export default {
         }
       }
       var data = [historicTrace, connectingTrace, predictedTrace];
-      var layout = {xaxis: {title: "Year"}, yaxis: {title: "Profit"}, showlegend: false}
+      var layout = {xaxis: {title: "Year"}, yaxis: {title: "Profit"}, margin: {t: 10, pad: 0}, showlegend: false}
       var config = {responsive: true, displayModeBar: false}
       Plotly.newPlot('myLinePlot', data, layout, config);
     }

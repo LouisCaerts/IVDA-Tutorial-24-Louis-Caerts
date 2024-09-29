@@ -3,7 +3,7 @@
     <v-row align="center" justify="center" class="mt-1 mb-0">
       <h3>Overview of {{ $props.selectedCategory }} Companies</h3>
     </v-row>
-    <div style="height: 90vh">
+    <div style="height: 80vh">
       <div id='myScatterPlot' style="height: inherit"></div>
     </div>
   </div>
@@ -87,7 +87,7 @@ export default {
         }
       };
       var data = [trace1];
-      var layout = {xaxis: {title: "Founding year"}, yaxis: {title: "# of employees"}}
+      var layout = {xaxis: {title: "Founding year"}, yaxis: {title: "# of employees"}, margin: {t: 10, pad: 0}}
       var config = {responsive: true, displayModeBar: false}
       Plotly.newPlot('myScatterPlot', data, layout, config);
       this.clickScatterPlot()
@@ -102,7 +102,6 @@ export default {
         var symbols = [];
 
         for (var i = 0; i < data.points.length; i++) {
-          console.log(data)
 
           // get the index of clicked point
           pn = data.points[i].pointNumber;
